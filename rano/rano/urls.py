@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('main.urls')),
     path('account/', include('account.urls')),
     path('espace_member/', include('espace_member.urls')),
+    path('facture/', include('facture.urls')),
 ]

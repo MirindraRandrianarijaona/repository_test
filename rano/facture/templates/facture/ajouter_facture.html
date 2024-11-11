@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter une Facture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 font-sans leading-relaxed">
+
+    <!-- Conteneur principal -->
+    <div class="container mx-auto p-6">
+
+        <!-- Titre -->
+        <h1 class="text-3xl font-semibold text-center text-blue-600 mb-8">Ajouter une Facture</h1>
+
+        <!-- Formulaire -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="text-center mt-6">
+                    <button type="submit"
+                        class="bg-blue-600 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-700">
+                        Ajouter la Facture
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

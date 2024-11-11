@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'theme',
     'main',
     'espace_member',
+    'facture'
 ]
 
 MIDDLEWARE = [
