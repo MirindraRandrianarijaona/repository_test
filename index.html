@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Rano - Accès à l'eau à Madagascar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .custom-shape-divider-bottom-1700000000 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .custom-shape-divider-bottom-1700000000 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+
+        .custom-shape-divider-bottom-1700000000 .shape-fill {
+            fill: #FFFFFF;
+        }
+    </style>
+</head>
+<body class="bg-blue-50">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold flex items-center">
+                <i class="fas fa-water mr-2"></i> Projet Rano
+            </h1>
+            <nav class="flex items-center">
+                <ul class="flex space-x-4">
+                    <li><a href="#about" class="hover:text-blue-200">À propos</a></li>
+                    <li><a href="#solution" class="hover:text-blue-200">Notre Solution</a></li>
+                    <li><a href="#contact" class="hover:text-blue-200">Contact</a></li>
+                </ul>
+                <!-- Bouton de connexion -->
+                <a href="./login.html" class="ml-6 bg-white text-blue-600 py-2 px-4 rounded-full font-bold hover:bg-blue-100 transition duration-300">
+                    Connexion
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section id="about" class="py-20 bg-blue-500 text-white relative">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-4 flex justify-center items-center">
+                 Résoudre le problème d'accès à l'eau à Madagascar
+                </h2>
+                <p class="text-xl mb-8">Nous travaillons pour apporter de l'eau propre à chaque foyer malgache.</p>
+                <a href="#contact" class="bg-white text-blue-500 py-2 px-6 rounded-full font-bold hover:bg-blue-100 transition duration-300">Agir maintenant</a>
+            </div>
+        </section>
+
+        <section id="solution" class="py-20">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center text-blue-600 mb-12">Notre Solution</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-start">
+                        <i class="fas fa-hand-holding-water text-blue-500 text-3xl mr-4"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold text-blue-500 mb-2">Puits Durables</h3>
+                            <p>Nous construisons des puits durables et faciles à entretenir pour assurer un accès à long terme à l'eau potable.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-start">
+                        <i class="fas fa-chalkboard-teacher text-blue-500 text-3xl mr-4"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold text-blue-500 mb-2">Éducation</h3>
+                            <p>Nous formons les communautés locales sur l'importance de l'hygiène et la gestion durable de l'eau.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-blue-600 text-white py-10">
+        <div class="container mx-auto text-center">
+            <h2 class="text-2xl font-bold mb-4">Contactez-nous</h2>
+            <p class="mb-4">Ensemble, nous pouvons faire la différence. Rejoignez-nous dans notre mission.</p>
+            <form id="contact-form" class="max-w-md mx-auto">
+                <input type="email" id="email" placeholder="Votre email" class="w-full p-2 mb-4 rounded text-blue-900" required>
+                <textarea id="message" placeholder="Votre message" class="w-full p-2 mb-4 rounded text-blue-900" required></textarea>
+                <button type="submit" class="bg-white text-blue-500 py-2 px-6 rounded-full font-bold hover:bg-blue-100 transition duration-300">Envoyer</button>
+            </form>
+        </div>
+    </footer>
+</body>
+</html>
