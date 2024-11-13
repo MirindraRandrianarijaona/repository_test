@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section id="about" class="py-20 bg-blue-500 text-white relative">
+    <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-4 flex justify-center items-center">
+        Résoudre le problème d'accès à l'eau à Madagascar
+        </h2>
+        <p class="text-xl mb-8">Nous travaillons pour apporter de l'eau propre à chaque foyer malgache.</p>
+        <a href="#contact" class="bg-white text-blue-500 py-2 px-6 rounded-full font-bold hover:bg-blue-100 transition duration-300">Agir maintenant</a>
+    </div>
+</section>
+
+<section id="solution" class="py-20">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-bold text-center text-blue-600 mb-12">Notre Solution</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-md flex items-start">
+                <i class="fas fa-hand-holding-water text-blue-500 text-3xl mr-4"></i>
+                <div>
+                    <h3 class="text-xl font-semibold text-blue-500 mb-2">Puits Durables</h3>
+                    <p>Nous construisons des puits durables et faciles à entretenir pour assurer un accès à long terme à l'eau potable.</p>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md flex items-start">
+                <i class="fas fa-chalkboard-teacher text-blue-500 text-3xl mr-4"></i>
+                <div>
+                    <h3 class="text-xl font-semibold text-blue-500 mb-2">Éducation</h3>
+                    <p>Nous formons les communautés locales sur l'importance de l'hygiène et la gestion durable de l'eau.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

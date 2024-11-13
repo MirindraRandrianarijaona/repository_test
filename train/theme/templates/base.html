@@ -1,0 +1,83 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Projet Rano - Accès à l'eau à Madagascar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% tailwind_css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-blue-50">
+    <!-- Loader -->
+    <div id="loader" class="fixed inset-0 flex items-center justify-center bg-white z-50">
+        <img src="{% static 'img/loader_nw.gif' %}?v={{ timestamp }}" alt="Loading..." class="w-64">
+    </div>
+
+    <!-- Main Content Wrapper (Initially Hidden) -->
+    <div id="main-content" class="hidden">
+        <header class="bg-cyan-800 text-white fixed w-full top-0 z-50 shadow-md">
+            <div class="container mx-auto flex justify-between items-center px-4 py-2">
+                <!-- Logo and Title -->
+                <h1 class="text-xl font-bold flex items-center">
+                    <img src="{% static 'img/logo_nw_128.png' %}" alt="Projet Rano" class="w-12 h-12 mr-2"> Projet Rano
+                </h1>
+
+                <!-- Toggle button for small screens -->
+                <button id="nav-toggle" class="text-white lg:hidden focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+
+                <!-- Navbar menu -->
+                <nav id="nav-menu" class="hidden lg:flex lg:flex-row lg:items-center lg:space-x-4 w-full lg:w-auto lg:bg-transparent flex-col lg:flex-row items-center bg-black text-white lg:text-white lg:static absolute top-full left-0 lg:top-auto lg:left-auto lg:py-0 py-4">
+                    <ul class="flex flex-col lg:flex-row lg:space-x-4 w-full lg:w-auto text-center lg:text-left">
+                        <li><a href="#about" class="hover:text-blue-200 py-2 px-4 block">À propos</a></li>
+                        <li><a href="#solution" class="hover:text-blue-200 py-2 px-4 block">Notre Solution</a></li>
+                        <li><a href="#contact" class="hover:text-blue-200 py-2 px-4 block">Contact</a></li>
+                    </ul>
+                    <div class="flex flex-col lg:flex-row lg:items-center lg:space-x-4 mt-2 lg:mt-0 w-full lg:w-auto text-center lg:text-left">
+                        <a href="{% url 'login' %}" class="bg-white text-blue-600 py-2 px-4 rounded-full font-bold hover:bg-blue-100 transition duration-300 mb-2 lg:mb-0">Connexion</a>
+                        <a href="{% url 'signup' %}" class="bg-blue-600 text-white py-2 px-4 rounded-full font-bold hover:bg-blue-700 transition duration-300">Inscription</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content with padding to avoid overlap with fixed navbar -->
+        <main class="pt-16">
+            {% block content %} {% endblock %}
+        </main>
+
+        <!-- Footer -->
+        <footer id="contact" class="bg-blue-600 text-white py-10">
+            <div class="container mx-auto text-center">
+                <h2 class="text-2xl font-bold mb-4">Contactez-nous</h2>
+                <p class="mb-4">Ensemble, nous pouvons faire la différence. Rejoignez-nous dans notre mission.</p>
+                <form id="contact-form" class="max-w-md mx-auto">
+                    <input type="email" id="email" placeholder="Votre email" class="w-full p-2 mb-4 rounded text-blue-900" required>
+                    <textarea id="message" placeholder="Votre message" class="w-full p-2 mb-4 rounded text-blue-900" required></textarea>
+                    <button type="submit" class="bg-white text-blue-500 py-2 px-6 rounded-full font-bold hover:bg-blue-100 transition duration-300">Envoyer</button>
+                </form>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Toggle nav menu on small screens
+        document.getElementById('nav-toggle').addEventListener('click', function () {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('hidden');
+            navMenu.classList.toggle('flex'); // Apply flex for toggling layout
+        });
+
+        // Script to hide the loader and show main content after page loads
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                document.getElementById("loader").classList.add("hidden"); // Hide the loader
+                document.getElementById("main-content").classList.remove("hidden"); // Show main content
+            }, 3000); // Minimum display time of 1 second
+        });
+    </script>
+</body>
+</html>
