@@ -24,4 +24,5 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('account/', include('account.urls')),
     path('espace_member/', include('espace_member.urls')),
+    path('facture/', include('facture.urls')),
 ]

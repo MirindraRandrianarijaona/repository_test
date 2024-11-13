@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'tailwind',
+    'widget_tweaks',
     'train',
     'theme',
-    'espace_member'
+    'espace_member',
+    'facture'
 ]
 
 MIDDLEWARE = [

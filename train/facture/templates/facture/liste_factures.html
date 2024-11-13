@@ -1,0 +1,49 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+    <!-- Conteneur principal -->
+    <div class="container mx-auto p-6">
+
+        <!-- Titre -->
+        <h1 class="text-3xl font-semibold text-center text-blue-600 mb-8">Liste des Factures</h1>
+
+        <!-- Bouton pour ajouter une facture -->
+        <div class="text-center mb-6">
+            <a href="{% url 'ajouter_facture' %}"
+                class="bg-blue-600 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-700">
+                Ajouter une facture
+            </a>
+        </div>
+
+        <!-- Tableau des factures -->
+        <div class="overflow-x-auto bg-white rounded-lg shadow-md">
+            <table class="min-w-full table-auto text-gray-700">
+                <thead class="bg-blue-600 text-white">
+                    <tr>
+                        <th class="px-4 py-2 text-left">Numéro</th>
+                        <th class="px-4 py-2 text-left">Eau</th>
+                        <th class="px-4 py-2 text-left">Electricité</th>
+                        <th class="px-4 py-2 text-left">Revenu</th>
+                        <th class="px-4 py-2 text-left">Date de création</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for facture in factures %}
+                    <tr class="border-t hover:bg-gray-100">
+                        <td class="px-4 py-2">{{ facture.id }}</td>
+                        <td class="px-4 py-2">{{ facture.water }} €</td>
+                        <td class="px-4 py-2">{{ facture.electricity }} €</td>
+                        <td class="px-4 py-2">{{ facture.income }} €</td>
+                        <td class="px-4 py-2">{{ facture.date }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="px-4 py-2 text-center text-gray-500">Aucune facture disponible.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+{% endblock %}
