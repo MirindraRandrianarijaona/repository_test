@@ -71,13 +71,19 @@
             navMenu.classList.toggle('flex'); // Apply flex for toggling layout
         });
 
-        // Script to hide the loader and show main content after page loads
-        document.addEventListener("DOMContentLoaded", function () {
+        // Ensure loader is shown for a minimum of 3 seconds and then hide after page load
+        const minimumLoaderTime = 3000; // 3 seconds in milliseconds
+        const loaderStartTime = Date.now();
+
+        window.onload = function () {
+            const elapsedTime = Date.now() - loaderStartTime;
+            const remainingTime = minimumLoaderTime - elapsedTime;
+
             setTimeout(function () {
                 document.getElementById("loader").classList.add("hidden"); // Hide the loader
                 document.getElementById("main-content").classList.remove("hidden"); // Show main content
-            }, 3000); // Minimum display time of 1 second
-        });
+            }, remainingTime > 0 ? remainingTime : 0);
+        };
     </script>
 </body>
 </html>
