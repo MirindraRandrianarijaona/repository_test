@@ -53,8 +53,13 @@ def logout_view(request):
     Vue pour se déconnecter.
     """
     logout(request)
+    # Supprime tous les messages précédents
+    storage = messages.get_messages(request)
+    storage.used = True
+
     messages.success(request, "Vous avez été déconnecté.")
     return redirect('login')
+
 
 @login_required
 def update_profile(request):
