@@ -55,6 +55,11 @@
             <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 rounded-md hover:bg-blue-700 transition duration-300">S'inscrire</button>
             <p class="text-center text-gray-500 mt-4">Vous avez déjà un compte ? <a href="{% url 'login' %}" class="text-blue-500 font-bold">Connectez-vous</a></p>
         </form>
+        
+        <!-- Lien pour retourner à l'accueil -->
+        <p class="text-center mt-6">
+            <a href="{% url 'home' %}" class="text-blue-500 font-bold hover:underline"><< Retourner à l'accueil</a>
+        </p>
     </div>
 
 </body>
