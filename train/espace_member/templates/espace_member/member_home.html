@@ -29,7 +29,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#settings" class="flex items-center hover:text-blue-200">
+                        <a href="{% url 'update_profile' %}" class="flex items-center hover:text-blue-200">
                             <i class="fas fa-cog mr-2"></i> Paramètres
                         </a>
                     </li>
@@ -47,9 +47,7 @@
     <main class="flex-1 p-6">
         <header class="flex justify-between items-center mb-6">
             <h1 class="text-3xl font-bold text-blue-600">Bienvenue, {{ user.username }}</h1>
-            <a href="{% url 'logout' %}" class="bg-blue-600 text-white py-2 px-4 rounded-full font-bold hover:bg-blue-700 transition duration-300">
-                Déconnexion
-            </a>
+            
         </header>
 
         <!-- Section Profil -->
@@ -57,9 +55,11 @@
             <h2 class="text-2xl font-bold mb-4">Mon Profil</h2>
             <div class="bg-white p-6 rounded-lg shadow-md">
                 <p><strong>Nom d'utilisateur :</strong> {{ user.username }}</p>
+                <p><strong>Nom :</strong> {{ user.last_name }}</p>
+                <p><strong>Prénom :</strong> {{ user.first_name }}</p>
                 <p><strong>Email :</strong> {{ user.email }}</p>
                 <p><strong>Numéro de téléphone :</strong> {{ user.phone_number }}</p>
-                <p><strong>Date d'inscription :</strong> {{ user.date_joined|date:"d/m/Y" }}</p>
+                <p><strong>Date de naissance :</strong> {{ user.date_of_birth|date:"d/m/Y" }}</p>
             </div>
         </section>
 
@@ -81,11 +81,12 @@
         <!-- Section Paramètres -->
         <section id="settings" class="mb-6">
             <h2 class="text-2xl font-bold mb-4">Paramètres</h2>
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="bg-white p-6 rounded-lg shadow-md flex flex-col">
                 <p>Modifier les paramètres du compte :</p>
-                <button class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-full font-bold hover:bg-blue-700 transition duration-300">
+                <a href="{% url 'update_profile' %}" class="mt-2 bg-blue-600 text-white py-2 px-4 rounded-full font-bold hover:bg-blue-700 transition duration-300 w-fit">
                     Modifier les informations
-                </button>
+                </a>
+
             </div>
         </section>
     </main>
@@ -101,7 +102,7 @@
         <i class="fas fa-bell"></i>
         <span>Notifications</span>
     </a>
-    <a href="#settings" class="flex flex-col items-center">
+    <a href="{% url 'update_profile' %}" class="flex flex-col items-center">
         <i class="fas fa-cog"></i>
         <span>Paramètres</span>
     </a>
