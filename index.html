@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page with 3D Model</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Load Three.js, fflate, and FBXLoader from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fflate/umd/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/FBXLoader.js"></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold">Logo</div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="text-gray-700 hover:text-blue-500">Home</a>
+                <a href="#" class="text-gray-700 hover:text-blue-500">About</a>
+                <a href="#" class="text-gray-700 hover:text-blue-500">Services</a>
+                <a href="#" class="text-gray-700 hover:text-blue-500">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <section class="w-full bg-blue-50 py-8">
+        <div class="container mx-auto flex flex-col md:flex-row items-center" style="height: 450px;">
+            <!-- Left: Title and Text -->
+            <div class="flex-1 text-center md:text-left md:pr-8 mb-8 md:mb-0">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">Welcome to Our Site</h1>
+                <p class="text-lg text-gray-600 mb-6">Explore our offerings and discover how we can help you bring your projects to life. We're excited to work with you.</p>
+                <button class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Get Started</button>
+            </div>
+
+            <!-- Right: 3D Model Preview -->
+            <div class="flex justify-center items-center" style="width: 450px;height: 450px;">
+                <canvas id="3d-model-canvas" class="" style="width: 450px;height: 450px; "></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script -->
+    <script src="./script.js"></script>
+</body>
+</html>
