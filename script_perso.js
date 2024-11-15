@@ -6,8 +6,8 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-camera.position.set(-1.5, 2, 2.5);
-camera.lookAt(0, 1.3, 0);
+camera.position.set(0, 1, 2.5);
+camera.lookAt(0, 0.9, 0);
 
 const renderer = new THREE.WebGLRenderer({
   canvas,
@@ -27,36 +27,18 @@ scene.add(directionalLight);
 
 let mixer;
 
+// Load FBX model
 const loader = new THREE.FBXLoader();
 loader.load(
   "./obj/robot_nw.fbx",
   function (fbx) {
-    fbx.scale.set(0.1, 0.1, 0.1);
+    fbx.scale.set(0.01, 0.01, 0.01);
     scene.add(fbx);
 
     mixer = new THREE.AnimationMixer(fbx);
-
     if (fbx.animations.length > 0) {
-      // Play the full animation once (frame 0–155)
-      const fullAction = mixer.clipAction(fbx.animations[0]);
-      fullAction.setLoop(THREE.LoopOnce); // Play once
-      fullAction.clampWhenFinished = true; // Hold on the last frame
-      fullAction.play();
-
-      // Listen for the animation finished event
-      mixer.addEventListener("finished", () => {
-        // Loop frames 60–100
-        const loopAction = mixer.clipAction(
-          THREE.AnimationUtils.subclip(
-            fbx.animations[0],
-            "LoopSection",
-            60,
-            100
-          )
-        );
-        loopAction.setLoop(THREE.LoopRepeat); // Loop continuously
-        loopAction.play();
-      });
+      const action = mixer.clipAction(fbx.animations[0]);
+      action.play();
     }
 
     function animate() {
@@ -64,8 +46,9 @@ loader.load(
 
       // Update mixer for animation
       if (mixer) {
-        mixer.update(0.02); // Advance animations
+        mixer.update(0.02);
       }
+
       updateCamera();
       renderer.render(scene, camera);
     }
@@ -93,10 +76,10 @@ document.addEventListener("mousemove", (event) => {
 
 // Update camera based on target values
 function updateCamera() {
-  camera.position.x += (-targetX - 2 - camera.position.x) * 0.1;
-  camera.position.y += (targetY + 2 - camera.position.y) * 0.01;
+  camera.position.x += (-targetX - camera.position.x) * 1;
+  camera.position.y += (targetY - camera.position.y) * 0.1;
 
-  camera.lookAt(0, 1.3, 0);
+  camera.lookAt(0, 0.9, 0);
 }
 
 // Handle resize
